@@ -1,0 +1,42 @@
+Compile Minimizer_fm.cpp:
+g++ -o M_FM_Map -std=c++11 -O3 -DNDEBUG -I ~/include -L ~/lib Main_minimizer.cpp -lz -lsdsl -ldivsufsort -ldivsufsort64
+
+Run on 25K data(full):
+./M_FM_Map '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/ecloi.reference.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/25K_read_processed.fasta' 14 24 '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/locations_out1.txt' >> '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/Result20161006.txt' 
+
+Run on 25K data(test - 20 reads):
+./M_FM_Map '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/ecloi.reference.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/25K_read_processed_20.fasta' 14 24 '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/locations_out1.txt' >> '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/Result20161006.txt' 
+
+Run on 25K data(debug - 1 read):
+./M_FM_Map '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/ecloi.reference.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/25K_read_processed_1.fasta' 14 24 '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/locations_out1.txt' >> '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/Result20161006.txt'
+
+Run on Simulated Data:
+./M_FM_Map '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/synthetic_reference_seq.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/gen_seq_formatted.fasta' 14 24 '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/loc_syn_out1.txt' >> '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/Result20161006.txt' 
+
+Run on Simulated Data(debug - 1 read):
+./M_FM_Map '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/synthetic_reference_seq.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/gen_seq_formatted_1.fasta' 14 24 '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/loc_syn_out1.txt' >> '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/Result20161006.txt' 
+
+Two output:
+./M_FM_Map '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/synthetic_reference_seq.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/gen_seq_formatted_1.fasta' 14 24 '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/loc_syn_out1.txt' '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/loc_syn_out2.txt'  >> '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/Result20161011.txt'
+
+Two output (reverse comp):
+./M_FM_Map '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/synthetic_reference_seq.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/gen_seq_formatted_1_rev_comp.fasta' 14 24 '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/loc_syn_out1.txt' '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/loc_syn_out2.txt'  >> '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/Result20161011.txt'
+
+Run on 20K data(full):
+./M_FM_Map '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/ecloi.reference.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/20K_simulated_reads.fasta' 14 24 '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/loc_20K_out1.txt' >> '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/Result20161006.txt' 
+
+Compile Do_sth_with_reads.cpp:
+g++ -o getStat -std=c++11 -O3 Do_sth_with_reads.cpp -lz 
+
+Run on 20K data:
+./getStat '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/ecloi.reference.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/20K_simulated_reads.fasta' >> Result20161009.txt
+
+Run on 25K data:
+./getStat '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/ecloi.reference.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/25K_read_processed.fasta' >> Result20161009.txt
+
+Run on Synthetic Data:
+./getStat '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/synthetic_reference_seq.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/gen_seq_formatted.fasta' >> Result20161009.txt
+
+
+Run synthetic data with 5% error:
+./M_FM_Map '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/synthetic_reference_seq.fasta' '/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/gen_seq_error_5.fasta' 14 24 '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/loc_syn_out_error5.txt' '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/loc_syn_out_error5_1.txt' >> '/home/manetsus/Desktop/Integration/Minimizer_fm_index_merged/Result20161017.txt' 
