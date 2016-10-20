@@ -51,14 +51,14 @@ struct my_data
     my_data(long long t, int p): minim(t), idx(p) {}
 };
 
-struct single_read{
-	string seq;
-	string name;
-	int offs,strt,alignment;
-	bool forward;
-	single_read(kseq_t *seqs)
-	{
-		seq = string(seqs->seq.s);
+struct single_read {
+    string seq;
+    string name;
+    int offs, strt, alignment;
+    bool forward;
+    single_read(kseq_t *seqs)
+    {
+        seq = string(seqs->seq.s);
         name = string(seqs->name.s);
         vector<string> strings;
         istringstream f(name);
@@ -67,11 +67,15 @@ struct single_read{
         {
             strings.emplace_back(s);
         }
-        offs = stoi(strings[5]);
-        strt = stoi(strings[1]);
-        alignment = (strings[2] != "unaligned");
-        forward = (strings[4] == "F");
-	}
+        if (strings.size() >= 6)
+        {
+            offs = stoi(strings[5]);
+            strt = stoi(strings[1]);
+            alignment = (strings[2] != "unaligned");
+            forward = (strings[4] == "F");
+        }
+        else alignment = forward = true;
+    }
 };
 
 unordered_map<long long, bool > retf, retr;
@@ -89,3 +93,16 @@ void init()
         kmask |= 3;
     }
 }
+
+size_t max_count = 20;
+size_t min_k = 14;
+
+// 1 - naive, 2 - enhanced, 3 - both
+int runningMode = 3;
+
+// length of the reference
+int ref_len;
+/**
+ * Variables for timer.
+ */
+struct timespec start, finish;
