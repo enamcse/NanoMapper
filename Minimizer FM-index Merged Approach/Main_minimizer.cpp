@@ -232,11 +232,10 @@ int main(int argc, const char **argv)
 	if (argc >= 6) {
 		loc_enhanced = string(argv[5]);
 	}
-
+	cout << ref_filepath << " " << read_filepath << " " << K << " " << W << " " << loc_enhanced << endl;
 	ADK = 10;
 	init();
 	takeReference(ref_filepath);
-	cout << REFF << endl;
 	// Creating FM Index on Reference
 	csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> fm_ff, fm_rr;
 	cout << " >>>>>>>>>>>>>>>>>>>> FM INDEX OUTPUT: BEGIN <<<<<<<<<<<<<<<<<<<<<<<<<\n";

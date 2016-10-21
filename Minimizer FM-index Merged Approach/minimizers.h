@@ -43,7 +43,7 @@ void find_minimizers(string s, unordered_map<long long, pair<size_t, size_t> > &
         if (s[i - K] != '_') continue;
         minimizer = temps;
 
-        cout << i - K + 1 << " m = " << minimizer << " = " << num2pat2(minimizer, K) << endl;
+        // cout << i - K + 1 << " m = " << minimizer << " = " << num2pat2(minimizer, K) << endl;
 
         while ((!sliding_window.empty()) && sliding_window.front().idx <= (i - W))
         {

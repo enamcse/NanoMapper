@@ -179,14 +179,16 @@ b_search_lim(
         cerr << "Something Went Wrong!\n" << endl;
         assert(0);
     }
+    l_res = l;
+    r_res = r;
     return 0;
 }
 
 pair<size_t, size_t> get_hashes(string pat, csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> &fm_ind) // pat should made address chacking safety
 {
-    cerr << "rev. it: " << pat << endl;
+    // cerr << "rev. it: " << pat << endl;
     reverse(pat.begin(), pat.end());
-    cerr << "hash it: " << pat << endl;
+    // cerr << "hash it: " << pat << endl;
     pair<size_t, size_t>ret;
     int k_length = 0;
     size_t occ_begin, occ_end;
