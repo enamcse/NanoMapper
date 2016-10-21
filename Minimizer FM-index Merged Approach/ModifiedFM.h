@@ -1,4 +1,3 @@
-
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 //! Backward search for a character c in an \f$\omega\f$-interval \f$[\ell..r]\f$ in the CSA.
 /*!
@@ -98,8 +97,7 @@ b_search(
 {
     t_pat_iter it = end;
     /// saves the last results
-    k_length = 0;
-    typename t_csa::size_type last_l = -1, last_r = -1,  res;
+    typename t_csa::size_type last_l = l, last_r = r,  res;
     // typename t_csa::size_type last_l_res = -1, last_r_res = -1;
     while (begin < it and r + 1 - l > 0) {
         last_l = l;
@@ -129,6 +127,72 @@ b_search(
     if (res <= max_count && k_length >= min_k) return res;
     return 0;
 }
+//! Backward search for a pattern in an \f$\omega\f$-interval \f$[\ell..r]\f$ in the CSA.
+/*!
+ * \tparam t_csa      A CSA type.
+ * \tparam t_pat_iter Pattern iterator type.
+ *
+ * \param csa   The CSA object.
+ * \param l     Left border of the lcp-interval \f$ [\ell..r]\f$.
+ * \param r     Right border of the lcp-interval \f$ [\ell..r]\f$.
+ * \param begin Iterator to the begin of the pattern (inclusive).
+ * \param end   Iterator to the end of the pattern (exclusive).
+ * \param l_res New left border.
+ * \param r_res New right border.
+ * \return The size of the new interval [\ell_{new}..r_{new}].
+ *         Equals zero, if no match is found.
+ *
+ * \pre \f$ 0 \leq \ell \leq r < csa.size() \f$
+ *
+ * \par Time complexity
+ *       \f$ \Order{ len \cdot t_{rank\_bwt} } \f$
+ * \par Reference
+ *         Paolo Ferragina, Giovanni Manzini:
+ *         Opportunistic Data Structures with Applications.
+ *         FOCS 2000: 390-398
+ */
+template<class t_csa, class t_pat_iter>
+typename t_csa::size_type
+b_search_lim(
+    const t_csa& csa,
+    typename t_csa::size_type l,
+    typename t_csa::size_type r,
+    t_pat_iter begin,
+    t_pat_iter end,
+    typename t_csa::size_type& l_res,
+    typename t_csa::size_type& r_res,
+    SDSL_UNUSED typename std::enable_if<std::is_same<csa_tag, typename t_csa::index_category>::value, csa_tag>::type x = csa_tag()
+)
+{
+    t_pat_iter it = end;
+    /// saves the last results
+    size_t k_length = 0;
+    typename t_csa::size_type res;
+    // typename t_csa::size_type last_l_res = -1, last_r_res = -1;
+    while (begin < it and r + 1 - l > 0 && k_length < min_k) {
+        --it;
+        b_search(csa, l, r, (typename t_csa::char_type)*it, l, r);
+        k_length++;
+    }
+    if (r < l)
+    {
+        cerr << "Something Went Wrong!\n" << endl;
+        assert(0);
+    }
+    return 0;
+}
+
+pair<size_t, size_t> get_hashes(string pat, csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> &fm_ind) // pat should made address chacking safety
+{
+    reverse(pat.begin(), pat.end());
+    pair<size_t, size_t>ret;
+    int k_length = 0;
+    size_t occ_begin, occ_end;
+    b_search_lim(fm_ind, 0, fm_ind.size() - 1, pat.begin(), pat.end(), occ_begin, occ_end);
+    ret.first = occ_begin;
+    ret.second = occ_end;
+    return ret;
+}
 //! Calculates all occurrences of a pattern pat in a CSA.
 /*!
  * \tparam t_csa      CSA type.
@@ -145,21 +209,24 @@ b_search(
  *         occurrences of pattern in the CSA.
  */
 template<class t_csa, class t_pat_iter, class t_rac = int_vector<64>>
-t_rac my_locate(
+t_rac my_locate_hash(
     const t_csa&  csa,
     t_pat_iter begin,
     t_pat_iter end,
     typename t_csa::size_type& min_k,
     typename t_csa::size_type& max_count,
     typename t_csa::size_type& k_length,
+    typename t_csa::size_type& occ_begin,
+    typename t_csa::size_type& occ_end,
     SDSL_UNUSED typename std::enable_if<std::is_same<csa_tag, typename t_csa::index_category>::value, csa_tag>::type x = csa_tag()
 )
 {
     // cout << "min(k) = " <<  min_k << " max_count = " << max_count << endl;
 
-    typename t_csa::size_type occ_begin, occ_end, occs;
+    typename t_csa::size_type occs;
+    k_length = min_k;
 
-    occs = b_search(csa, 0, csa.size() - 1, begin, end, occ_begin, occ_end, min_k, max_count, k_length);
+    occs = b_search(csa, occ_begin, occ_end, begin, end, occ_begin, occ_end, min_k, max_count, k_length);
 
     /// it should be handled in b_search() function. Kept it here for safety. it should be removed later.
     if ( (k_length < min_k && occs > 0) || occs > max_count)

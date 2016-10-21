@@ -1,4 +1,4 @@
-void find_minimizers(string s, unordered_map<long long, bool > &ret) // reduced a parameter which was actually an index to count efficiently a minimizer in a range
+void find_minimizers(string s, unordered_map<long long, pair<size_t, size_t> > &ret, csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> &fm_ind) // reduced a parameter which was actually an index to count efficiently a minimizer in a range
 {
     ret.clear();
     if (SZ(s) < K or SZ(s) < W)
@@ -52,7 +52,7 @@ void find_minimizers(string s, unordered_map<long long, bool > &ret) // reduced 
         if (sliding_window.front().minim != prevmin)
         {
 
-            if (ret.count(prevmin) == 0) ret[ prevmin ] = true;
+            if (ret.count(prevmin) == 0) ret[ prevmin ] = get_hashes(num2pat2(prevmin, K), fm_ind);
             prevmin = sliding_window.front().minim;
         }
 
@@ -61,7 +61,7 @@ void find_minimizers(string s, unordered_map<long long, bool > &ret) // reduced 
 
     if (ret.count(sliding_window.front().minim) == 0)
     {
-        ret[ ret.count(sliding_window.front().minim) ] = true;
+        ret[ sliding_window.front().minim ] = get_hashes(num2pat2(sliding_window.front().minim, K), fm_ind);
     }
     return ;
 }

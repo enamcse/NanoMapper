@@ -78,12 +78,9 @@ struct single_read {
     }
 };
 
-unordered_map<long long, bool > retf, retr;
+unordered_map<long long, pair<size_t, size_t> > retf, retr;
 vector<int> for_index, rev_index;
 
-#include "bio_func.h"
-#include "minimizers.h"
-#include "ModifiedFM.h"
 
 void init()
 {
@@ -106,3 +103,8 @@ int ref_len;
  * Variables for timer.
  */
 struct timespec start, finish;
+
+/// Our utility functions
+#include "bio_func.h"
+#include "ModifiedFM.h"
+#include "minimizers.h"

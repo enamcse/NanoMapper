@@ -44,7 +44,7 @@ string num2pat2(long long num, int k)
         else if (tem == 1) s.push_back('C');
         else if (tem == 2) s.push_back('G');
         else s.push_back('T');
-        if (i & 1) s.push_back('_');
+        if ((i & 1) && s.size() < k) s.push_back('_');
         num >>= 2;
     }
     reverse(s.begin(), s.end());
