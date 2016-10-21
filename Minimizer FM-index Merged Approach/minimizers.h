@@ -22,6 +22,7 @@ void find_minimizers(string s, unordered_map<long long, pair<size_t, size_t> > &
             temps &= kmask;
             temps |= nt2num(s[i]);
         }
+        if (s[i - K] != '_') continue;
         minimizer = temps;
         //cerr << num2pat(temps, ((K / 3) * 2)) << "++" << num2pat(minimizer, ((K / 3) * 2)) << endl;
         while ((!sliding_window.empty()) && minimizer < sliding_window.back().minim)
@@ -38,8 +39,12 @@ void find_minimizers(string s, unordered_map<long long, pair<size_t, size_t> > &
             temps &= kmask;
             temps |= nt2num(s[i]);
         }
+        // cout << i << " > " << s[i] << "." << i - K << " > " << s[i - K] << endl;
         if (s[i - K] != '_') continue;
         minimizer = temps;
+
+        cout << i - K + 1 << " m = " << minimizer << " = " << num2pat2(minimizer, K) << endl;
+
         while ((!sliding_window.empty()) && sliding_window.front().idx <= (i - W))
         {
 
@@ -51,8 +56,11 @@ void find_minimizers(string s, unordered_map<long long, pair<size_t, size_t> > &
 
         if (sliding_window.front().minim != prevmin)
         {
-
-            if (ret.count(prevmin) == 0) ret[ prevmin ] = get_hashes(num2pat2(prevmin, K), fm_ind);
+            if (ret.count(prevmin) == 0)
+            {
+                // cerr << i << " " << prevmin << " " << REFF.substr( i, 14) << endl;
+                ret[ prevmin ] = get_hashes(num2pat2(prevmin, K), fm_ind);
+            }
             prevmin = sliding_window.front().minim;
         }
 

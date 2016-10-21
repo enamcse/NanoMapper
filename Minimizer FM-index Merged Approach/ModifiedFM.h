@@ -184,7 +184,9 @@ b_search_lim(
 
 pair<size_t, size_t> get_hashes(string pat, csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> &fm_ind) // pat should made address chacking safety
 {
+    cerr << "rev. it: " << pat << endl;
     reverse(pat.begin(), pat.end());
+    cerr << "hash it: " << pat << endl;
     pair<size_t, size_t>ret;
     int k_length = 0;
     size_t occ_begin, occ_end;
@@ -226,7 +228,7 @@ t_rac my_locate_hash(
     typename t_csa::size_type occs;
     k_length = min_k;
 
-    occs = b_search(csa, occ_begin, occ_end, begin, end, occ_begin, occ_end, min_k, max_count, k_length);
+    occs = b_search(csa, occ_begin, occ_end, begin, end - min_k, occ_begin, occ_end, min_k, max_count, k_length);
 
     /// it should be handled in b_search() function. Kept it here for safety. it should be removed later.
     if ( (k_length < min_k && occs > 0) || occs > max_count)

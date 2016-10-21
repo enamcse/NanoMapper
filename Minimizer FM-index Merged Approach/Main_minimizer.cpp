@@ -58,7 +58,8 @@ void indexReferenceForEnhancedFM(csa_wt<wt_huff<rrr_vector<127> >, 512, 1024>& f
 	construct_im(fm_f, REFF, 1);
 	construct_im(fm_r, REV_REFF, 1);
 	clock_gettime(CLOCK_MONOTONIC, &finish);
-
+	reverse(REFF.begin(), REFF.end());
+	reverse(REV_REFF.begin(), REV_REFF.end());
 	int elapsed = (finish.tv_sec - start.tv_sec);
 	elapsed += ((finish.tv_nsec - start.tv_nsec) * 1.0 / 1000000000.0);
 	cout << " >>> INDEX CREATING <<<\n";
@@ -176,6 +177,7 @@ void buildMinimizerIndex(csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> &fm_ind_fw
 {
 	clock_gettime(CLOCK_MONOTONIC, &start);
 	find_minimizers(REFF, retf, fm_ind_fwd);
+	// cerr << "ENDED FORWARD" << endl;
 	find_minimizers(REV_REFF, retr, fm_ind_rev);
 	clock_gettime(CLOCK_MONOTONIC, &finish);
 
@@ -234,6 +236,7 @@ int main(int argc, const char **argv)
 	ADK = 10;
 	init();
 	takeReference(ref_filepath);
+	cout << REFF << endl;
 	// Creating FM Index on Reference
 	csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> fm_ff, fm_rr;
 	cout << " >>>>>>>>>>>>>>>>>>>> FM INDEX OUTPUT: BEGIN <<<<<<<<<<<<<<<<<<<<<<<<<\n";
