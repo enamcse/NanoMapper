@@ -15,3 +15,20 @@ Number of Unique Minimizers:
 Forward: 60935
 Reverse: 61319
 LOCATIONS querying Time in modified procedure: 0.904218
+/media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/ecloi.reference.fasta /media/manetsus/SoftAndHard/Thesis_branch/FM Index Sajib sir/Test Compression/Test Ref Data/20K_simulated_reads.fasta 14 24 ./Results/Merged_enhanced_20K_res.txt
+Reference Length: 4639211
+ >>>>>>>>>>>>>>>>>>>> FM INDEX OUTPUT: BEGIN <<<<<<<<<<<<<<<<<<<<<<<<<
+ >>> INDEX CREATING <<<
+Indexing of Reverse Reference (FOR ENHANCED FM):
+Length of Reference: 4639211
+Reference Indexing Time: 2
+Memory Consumption in MB:
+Forward = 0.835382
+Reverse = 0.835389
+ >>> END - INDEX CREATING <<<
+ >>>>>>>>>>>>>>>>>>>> FM INDEX OUTPUT:   END <<<<<<<<<<<<<<<<<<<<<<<<<
+Time needed to compute all minimizers of Reference : 17.6439
+Number of Unique Minimizers:
+Forward: 341186
+Reverse: 341062
+LOCATIONS querying Time in modified procedure: 7173.01

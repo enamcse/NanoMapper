@@ -60,7 +60,7 @@ void indexReferenceForEnhancedFM(csa_wt<wt_huff<rrr_vector<127> >, 512, 1024>& f
 	clock_gettime(CLOCK_MONOTONIC, &finish);
 	reverse(REFF.begin(), REFF.end());
 	reverse(REV_REFF.begin(), REV_REFF.end());
-	int elapsed = (finish.tv_sec - start.tv_sec);
+	double elapsed = (finish.tv_sec - start.tv_sec);
 	elapsed += ((finish.tv_nsec - start.tv_nsec) * 1.0 / 1000000000.0);
 	cout << " >>> INDEX CREATING <<<\n";
 	cout << "Indexing of Reverse Reference (FOR ENHANCED FM):\n";
@@ -175,13 +175,13 @@ void processEnhancedFMAprroach(csa_wt<wt_huff<rrr_vector<127> >, 512, 1024>&  fm
 
 void buildMinimizerIndex(csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> &fm_ind_fwd, csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> &fm_ind_rev)
 {
+	double elapsed = 0.0;
 	clock_gettime(CLOCK_MONOTONIC, &start);
 	find_minimizers(REFF, retf, fm_ind_fwd);
-	// cerr << "ENDED FORWARD" << endl;
 	find_minimizers(REV_REFF, retr, fm_ind_rev);
 	clock_gettime(CLOCK_MONOTONIC, &finish);
 
-	double elapsed = (finish.tv_sec - start.tv_sec);
+	elapsed = (finish.tv_sec - start.tv_sec);
 	elapsed += ((finish.tv_nsec - start.tv_nsec) * 1.0 / 1000000000.0);
 	cout << "Time needed to compute all minimizers of Reference : ";
 	cout << (double)elapsed << "\n";
