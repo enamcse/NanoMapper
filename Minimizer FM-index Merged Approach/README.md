@@ -41,7 +41,7 @@ A Mapping tool using gapped minimizer and BWT FM-index
 
  - `void find_kmers_of_read_in_refer(int flag, int offset, int start_in_ref, string read_name, string red_seq)`[Unused]: Kept for safety check. No use of this function in this version.
 
- ###`ModifiedFM.h`:
+###`ModifiedFM.h`:
  Parameters of the functions under this header file are so long. So, only the name and indication for unique identification is used.
 
  - `b_search(7 parameters)`: No change, same as *SDSL-lite*'s `backward_search()` function. Kept here for better understanding. It has an overloaded version.
