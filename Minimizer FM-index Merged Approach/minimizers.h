@@ -22,6 +22,7 @@ void find_minimizers(string s, unordered_map<long long, bool > &ret) // reduced 
             temps &= kmask;
             temps |= nt2num(s[i]);
         }
+        if (s[i - K] != '_') continue;
         minimizer = temps;
         //cerr << num2pat(temps, ((K / 3) * 2)) << "++" << num2pat(minimizer, ((K / 3) * 2)) << endl;
         while ((!sliding_window.empty()) && minimizer < sliding_window.back().minim)
