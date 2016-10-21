@@ -5,11 +5,11 @@ A Mapping tool using gapped minimizer and BWT FM-index
 
 - To compile the current version, give the following command from the current directory:
     
-    g++ -o NanoMapper -std=c++11 -O3 -DNDEBUG -I ~/include -L ~/lib ./Minimizer\ FM-index\ Merged\ Approach/Main_minimizer.cpp -lz -lsdsl -ldivsufsort -ldivsufsort64
+        g++ -o NanoMapper -std=c++11 -O3 -DNDEBUG -I ~/include -L ~/lib ./Minimizer\ FM-index\ Merged\ Approach/Main_minimizer.cpp -lz -lsdsl -ldivsufsort -ldivsufsort64
 
 - To run a demo, give the following command:
 
-	./NanoMapper './DataSet/synthetic_reference.fasta' './DataSet/synthetic_reads.fasta' 14 24 2 './Results/Merged_enhanced_res.txt' 
+	    ./NanoMapper './DataSet/synthetic_reference.fasta' './DataSet/synthetic_reads.fasta' 14 24 2 './Results/Merged_enhanced_res.txt' 
 
 
 ##Developer
