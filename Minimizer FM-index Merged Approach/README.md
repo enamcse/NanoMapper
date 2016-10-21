@@ -19,27 +19,27 @@ A Mapping tool using gapped minimizer and BWT FM-index
 
  - `string num2pat2(long long num, int k)`: Gets a 64-bit signed integer and the length of k-mer and converts it to corresponding DNA sequence with inserting gap.
 
-  - `int nt2num(char &x)`: Gets the address of a base and converts the base to a binary number ranging 0-3.
+ - `int nt2num(char &x)`: Gets the address of a base and converts the base to a binary number ranging 0-3.
 
-  - `char num2nt(int &x)`: Gets the address of a base in binary and converts the base to a character base A,T,C or G.
+ - `char num2nt(int &x)`: Gets the address of a base in binary and converts the base to a character base A,T,C or G.
 
-  - `long long rev_comp(long long x, int k)`: Gets a 64-bit signed integer with its length k. The integer represents a k-mer. The function returns a 64-bit signed integer which represents the reverse complement of the given k-mer(integer).
+ - `long long rev_comp(long long x, int k)`: Gets a 64-bit signed integer with its length k. The integer represents a k-mer. The function returns a 64-bit signed integer which represents the reverse complement of the given k-mer(integer).
 
-  - `void insert_gap(string &s, const int init = 0)`: It takes a DNA sequence and inserts gaps in every third base. An optional parameter could be supplied for offset adjusting (offset would be adjusted having modulo 3).
+ - `void insert_gap(string &s, const int init = 0)`: It takes a DNA sequence and inserts gaps in every third base. An optional parameter could be supplied for offset adjusting (offset would be adjusted having modulo 3).
 
-  - `void reverse_comp_of_ref()`: Initializes the REV_REFF, the reverse complement of the forward sequence REFF.
+ - `void reverse_comp_of_ref()`: Initializes the REV_REFF, the reverse complement of the forward sequence REFF.
 
  - `string insert_gap_read(string str)`[Unused]: The function was for any previous version. There is no use of this function here.
 
  ###`minimizers.h`:
 
-  - `void find_minimizers(string s, unordered_map<long long, pair<size_t, size_t> > &ret, csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> &fm_ind)`:
+ - `void find_minimizers(string s, unordered_map<long long, pair<size_t, size_t> > &ret, csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> &fm_ind)`:
 
-  	- `s`: Reference DNA sequence which should be indexed.
-  	- `ret`: `unordered_map` of minimizers which would be produced by this function as a result.
-  	- `fm_ind`: FM-index of the reference DNA sequence `s` [first parameter]
+ 	- `s`: Reference DNA sequence which should be indexed.
+ 	- `ret`: `unordered_map` of minimizers which would be produced by this function as a result.
+ 	- `fm_ind`: FM-index of the reference DNA sequence `s` [first parameter]
 
-  - `void find_kmers_of_read_in_refer(int flag, int offset, int start_in_ref, string read_name, string red_seq)`[Unused]: Kept for safety check. No use of this function in this version.
+ - `void find_kmers_of_read_in_refer(int flag, int offset, int start_in_ref, string read_name, string red_seq)`[Unused]: Kept for safety check. No use of this function in this version.
 
  ###`ModifiedFM.h`:
  Parameters of the functions under this header file are so long. So, only the name and indication for unique identification is used.
@@ -56,7 +56,7 @@ A Mapping tool using gapped minimizer and BWT FM-index
 
  ###`predefines.h`:
 
-  - `init()`: Initializes the largest possible mask to filter any larger mask.
+ - `init()`: Initializes the largest possible mask to filter any larger mask.
 
  ###`Main_minimizer.cpp`:
 
