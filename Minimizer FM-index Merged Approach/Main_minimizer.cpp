@@ -410,8 +410,8 @@ int main(int argc, const char **argv)
 	csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> fm_f, fm_r, fm_ff, fm_rr;
 	cout << " >>>>>>>>>>>>>>>>>>>> FM INDEX OUTPUT: BEGIN <<<<<<<<<<<<<<<<<<<<<<<<<\n";
 	if (runningMode & 1)indexReferenceForNaiveFM(fm_f, fm_r);
-	indexReferenceForEnhancedFM(fm_ff, fm_rr);
-	if (runningMode & 2)cout << " >>>>>>>>>>>>>>>>>>>> FM INDEX OUTPUT:   END <<<<<<<<<<<<<<<<<<<<<<<<<\n";
+	if (runningMode & 2)indexReferenceForEnhancedFM(fm_ff, fm_rr);
+	cout << " >>>>>>>>>>>>>>>>>>>> FM INDEX OUTPUT:   END <<<<<<<<<<<<<<<<<<<<<<<<<\n";
 
 	// Processing Reads
 	vector<single_read>reads;
