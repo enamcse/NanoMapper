@@ -94,9 +94,6 @@ void init()
 size_t max_count = 20;
 size_t min_k = 14;
 
-// 1 - naive, 2 - enhanced, 3 - both
-int runningMode = 3;
-
 // length of the reference
 int ref_len;
 /**
