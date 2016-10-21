@@ -1,0 +1,17 @@
+./DataSet/synthetic_reference.fasta ./DataSet/synthetic_reads.fasta 14 24 ./Results/Merged_enhanced_res.txt
+Reference Length: 493290
+Time needed to compute all minimizers of Reference : 0.0389278
+Number of Unique Minimizers:
+Forward: 60935
+Reverse: 61318
+ >>>>>>>>>>>>>>>>>>>> FM INDEX OUTPUT: BEGIN <<<<<<<<<<<<<<<<<<<<<<<<<
+ >>> INDEX CREATING <<<
+Indexing of Reverse Reference (FOR ENHANCED FM):
+Length of Reference: 493290
+Reference Indexing Time: 0
+Memory Consumption in MB:
+Forward = 0.0908823
+Reverse = 0.090867
+ >>> END - INDEX CREATING <<<
+ >>>>>>>>>>>>>>>>>>>> FM INDEX OUTPUT:   END <<<<<<<<<<<<<<<<<<<<<<<<<
+LOCATIONS querying Time in modified procedure: 0.924385

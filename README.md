@@ -9,8 +9,7 @@ A Mapping tool using gapped minimizer and BWT FM-index
 
 - To run a demo, give the following command:
 
-	    ./NanoMapper './DataSet/synthetic_reference.fasta' './DataSet/synthetic_reads.fasta' 14 24 2 './Results/Merged_enhanced_res.txt' 
-
+	    ./NanoMapper './DataSet/synthetic_reference.fasta' './DataSet/synthetic_reads.fasta' 14 24 2 './Results/Merged_enhanced_res.txt' >> './Results/Summary.txt'
 
 ##Developer
 Enamul Hassan and Md. Khairullah Gaurab under the direction of Ruhul Amin Shajib Sir
