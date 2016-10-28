@@ -71,7 +71,7 @@ void indexReferenceForNaiveFM(csa_wt<wt_huff<rrr_vector<127> >, 512, 1024>&  fm_
 	clock_gettime(CLOCK_MONOTONIC, &finish);
 	cout << " >>> INDEX CREATING <<<\n";
 	cout << "\nIndexing of Reference (FOR NAIVE FM):\n";
-	int elapsed = (finish.tv_sec - start.tv_sec);
+	double elapsed = (finish.tv_sec - start.tv_sec);
 	elapsed += ((finish.tv_nsec - start.tv_nsec) * 1.0 / 1000000000.0);
 	cout << "Length of Reference: " << REV_REFF.size() << "\n";
 	cout << "Reference Indexing Time: " << (double)elapsed << "\n";
@@ -94,7 +94,7 @@ void indexReferenceForEnhancedFM(csa_wt<wt_huff<rrr_vector<127> >, 512, 1024>& f
 	construct_im(fm_r, REV_REFF, 1);
 	clock_gettime(CLOCK_MONOTONIC, &finish);
 
-	int elapsed = (finish.tv_sec - start.tv_sec);
+	double elapsed = (finish.tv_sec - start.tv_sec);
 	elapsed += ((finish.tv_nsec - start.tv_nsec) * 1.0 / 1000000000.0);
 	cout << " >>> INDEX CREATING <<<\n";
 	cout << "Indexing of Reverse Reference (FOR ENHANCED FM):\n";
