@@ -233,7 +233,7 @@ int main(int argc, const char **argv)
 		loc_enhanced = string(argv[5]);
 	}
 	cout << ref_filepath << " " << read_filepath << " " << K << " " << W << " " << loc_enhanced << endl;
-	ADK = 10;
+	ADK = (K / 3) * 2 + (K % 3);
 	init();
 	takeReference(ref_filepath);
 	// Creating FM Index on Reference
