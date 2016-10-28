@@ -398,7 +398,7 @@ int main(int argc, const char **argv)
 		if (runningMode == 3)loc_enhanced = string(argv[7]);
 	}
 	cout << ref_filepath << " " << read_filepath << " " << K << " " << W << " " << loc_enhanced << endl;
-	ADK = 10;
+	ADK = (K / 3) * 2 + (K % 3);
 	init();
 
 	// Processing Reference
