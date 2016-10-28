@@ -16,7 +16,10 @@ We have used [SDSL-lite](https://github.com/simongog/sdsl-lite) for fm-index. So
 - 64-bit unix based operating system (Linux or Mac OS X).
 
 #Instructions:
+- To get NanoMapper in your PC:
 
+		git clone https://github.com/enamcse/NanoMapper.git && cd NanoMapper
+		
 - To compile the current version, give the following command from the current directory:
     
         g++ -o NanoMapper -std=c++11 -O3 -DNDEBUG -I ~/include -L ~/lib ./Minimizer\ FM-index\ Merged\ Approach/Main_minimizer.cpp -lz -lsdsl -ldivsufsort -ldivsufsort64
