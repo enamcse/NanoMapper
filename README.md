@@ -1,9 +1,9 @@
 # NanoMapper
 A Mapping tool using gapped minimizer and BWT FM-index
 
-#Prerequisites:
+# Prerequisites:
 
-##API:
+## API:
 We have used [SDSL-lite](https://github.com/simongog/sdsl-lite) for fm-index. So, you need to install that first. To install that, you have to do the following:
 
 - Make sure you have an updated [cmake](http://www.cmake.org/) build system.
@@ -14,10 +14,10 @@ We have used [SDSL-lite](https://github.com/simongog/sdsl-lite) for fm-index. So
 		cd sdsl-lite
 		./install.sh
 
-##OS:
+## OS:
 - 64-bit unix based operating system (Linux or Mac OS X).
 
-#Instructions:
+# Instructions:
 - To get NanoMapper in your PC:
 
 		git clone https://github.com/enamcse/NanoMapper.git && cd NanoMapper
@@ -30,10 +30,11 @@ We have used [SDSL-lite](https://github.com/simongog/sdsl-lite) for fm-index. So
 
 	    ./NanoMapper './DataSet/synthetic_reference.fasta' './DataSet/synthetic_reads.fasta' 14 24 2 './Results/Merged_enhanced_res.txt' >> './Results/Summary.txt'
 
-##Developer
+## Developer
 Enamul Hassan and Md. Khairullah Gaurab under the direction of Ruhul Amin Shajib Sir
 
-##Contact Information
+## Contact Information
 Enamul Hassan : enamsustcse@gmail.com
+
 Md. Khairullah Gaurab : mkgaurabsarkar@gmail.com
 
