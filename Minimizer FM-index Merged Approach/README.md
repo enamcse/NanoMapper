@@ -1,7 +1,7 @@
 # NanoMapper
 A Mapping tool using gapped minimizer and BWT FM-index
 
-##Header Files:
+## Header Files:
 
  - `kseq.h`: This is a library used for faster input output from fasta file.
  - `predefines.h`: All necessary header files and global variables declared through it.
@@ -9,9 +9,9 @@ A Mapping tool using gapped minimizer and BWT FM-index
  - `minimizers.h`: Minimizer related functions are written in this file.
  - `ModifiedFM.h`: Modifications in FM index API functions are done here. Most of them are copied from the API source code and then did necessary modification with edited function names.
 
-##Functions:
+## Functions:
 
-###`bio_func.h`:
+### `bio_func.h`:
 
  - `long long pat2num(string s)`: Gets a DNA sequence (with or without gap)and returns corresponding 64-bit signed integer.
 
@@ -31,7 +31,7 @@ A Mapping tool using gapped minimizer and BWT FM-index
 
  - `string insert_gap_read(string str)`[Unused]: The function was for any previous version. There is no use of this function here.
 
- ###`minimizers.h`:
+ ### `minimizers.h`:
 
  - `void find_minimizers(string s, unordered_map<long long, pair<size_t, size_t> > &ret, csa_wt<wt_huff<rrr_vector<127> >, 512, 1024> &fm_ind)`:
 
@@ -58,7 +58,7 @@ A Mapping tool using gapped minimizer and BWT FM-index
 
  - `init()`: Initializes the largest possible mask to filter any larger mask.
 
- ###`Main_minimizer.cpp`:
+ ### `Main_minimizer.cpp`:
 
  - `void takeReference(string &ref_filepath)`: Takes the file path of the reference fasta and stores the reference in REFF after retrieving. It also generates the reverse complement of the reference and stores in REV_REFF. It inserts gaps too.
 
@@ -72,10 +72,10 @@ A Mapping tool using gapped minimizer and BWT FM-index
 
  - `int main(int argc, const char **argv)`: Most ancient and prestigious function which leads all of the process.
 
-##Developer
+## Developer
 Enamul Hassan and Md. Khairullah Gaurab under the direction of Ruhul Amin Shajib Sir
 
-##Contact Information
+## Contact Information
 Enamul Hassan : enamsustcse@gmail.com
 
 Md. Khairullah Gaurab : mkgaurabsarkar@gmail.com
